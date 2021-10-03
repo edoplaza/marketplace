@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchCart, cartSelector } from '../../slices/cart'
 
 import './styles.scss'
 
 const Nav = () => {
+  const dispatch = useDispatch()
+  const { cart } = useSelector(cartSelector)
+
+  useEffect(() => {
+    dispatch(fetchCart())
+  }, [dispatch])
+
   return (
     <nav className="main-nav">
       <ul className="main-nav-list">
@@ -14,7 +23,7 @@ const Nav = () => {
           <Link to="/cart">
             <i className="fa fa-shopping-cart" />
             Cart
-            <span className="cart-number">0</span>
+            <span className="cart-number">{cart.length}</span>
           </Link>
         </li>
       </ul>

@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchCart, cartSelector } from '../../slices/cart'
+import { fetchProducts, productsSelector } from '../../slices/products'
 
 import './styles.scss'
 
 const Cart = () => {
-  function cartItems() {
-    return []
-  }
+  const dispatch = useDispatch()
+  const { cart } = useSelector(cartSelector)
+  const { products } = useSelector(productsSelector)
+
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(fetchCart())
+  }, [dispatch])
 
   return (
     <div className="cart">
       <h2 className="cart-title">Cart</h2>
 
-      {cartItems.length === 0 && (
+      {cart.length === 0 && (
         <>
           <p className="cart-message">
             Your cart is empty. <br />
@@ -22,13 +33,36 @@ const Cart = () => {
         </>
       )}
 
-      {cartItems.length > 0 && (
+      {cart.length > 0 && (
         <>
           <p className="cart-message">Are you ready to purchase these?</p>
-          <ul>
-            {cartItems().map((cartItem) => (
-              <li key={cartItem}>{cartItem}</li>
-            ))}
+          <ul className="cart-list">
+            {products.map((product) => {
+              if (cart.includes(product.id)) {
+                return (
+                  <div key={product.id} className="cart-list-item">
+                    <div className="cart-list-item-image">
+                      <img
+                        src={`/assets/images/${product.thumbnail}`}
+                        alt={product.name}
+                      />
+                    </div>
+                    <h2 className="cart-list-item-info">
+                      Name: <span>{product.name}</span>
+                    </h2>
+                    <h3 className="cart-list-item-info">
+                      Price: <span>{product.price}</span>
+                    </h3>
+                    <button className="cart-list-item-remove">
+                      <i className="fa fa-times" />
+                      Remove from Cart
+                    </button>
+                  </div>
+                )
+              } else {
+                return null
+              }
+            })}
           </ul>
         </>
       )}

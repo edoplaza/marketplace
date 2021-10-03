@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
-import { products } from '../../helpers/products'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProducts, productsSelector } from '../../slices/products'
 
 import './styles.scss'
 
 const Products = () => {
+  const dispatch = useDispatch()
+  const { products } = useSelector(productsSelector)
   let { url } = useRouteMatch()
+
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch])
 
   return (
     <div className="products">
