@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts, productsSelector } from '../../slices/products'
+import { addCartItem } from '../../slices/cart'
 
 import './styles.scss'
 
@@ -34,7 +35,10 @@ const Product = () => {
                 <p className="product-description-item">
                   Price: <span>{product.price}</span>
                 </p>
-                <button className="product-add">
+                <button
+                  className="product-add"
+                  onClick={() => dispatch(addCartItem(product.id))}
+                >
                   <i className="fa fa-shopping-cart"></i>Add to Cart
                 </button>
               </div>

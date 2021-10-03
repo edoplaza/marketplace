@@ -1,36 +1,49 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const initialState = {
-  cart: ['123456'],
+  cart: [],
 }
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    getCart: (state) => {
-      state.cartLoading = true
+    getItems: (state) => state,
+
+    addItem: (state, { payload }) => {
+      if (!state.cart.includes(payload)) {
+        state.cart = [...state.cart, payload]
+      }
+      return state
     },
-    getCartSuccess: (state, { payload }) => {
-      state.cart = payload.data
-      state.cartLoading = false
-      state.cartHasErrors = false
-    },
-    getCartFailure: (state) => {
-      state.cartLoading = false
-      state.cartHasErrors = true
+
+    removeItem: (state, { payload }) => {
+      state.cart = state.cart.filter((item) => item !== payload)
+      return state
     },
   },
 })
 
-export const { getCart, getCartSuccess, getCartFailure } = cartSlice.actions
+export const { getItems, addItem, removeItem } = cartSlice.actions
 
 export const cartSelector = (state) => state.cart
 
 export default cartSlice.reducer
 
-export function fetchCart() {
+export function fetchCartItems() {
   return async (dispatch) => {
-    dispatch(getCart())
+    dispatch(getItems())
+  }
+}
+
+export function addCartItem(id) {
+  return async (dispatch) => {
+    dispatch(addItem(id))
+  }
+}
+
+export function removeCartItem(id) {
+  return async (dispatch) => {
+    dispatch(removeItem(id))
   }
 }

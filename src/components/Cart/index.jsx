@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCart, cartSelector } from '../../slices/cart'
+import { fetchCartItems, removeCartItem, cartSelector } from '../../slices/cart'
 import { fetchProducts, productsSelector } from '../../slices/products'
 
 import './styles.scss'
@@ -13,10 +13,7 @@ const Cart = () => {
 
   useEffect(() => {
     dispatch(fetchProducts())
-  }, [dispatch])
-
-  useEffect(() => {
-    dispatch(fetchCart())
+    dispatch(fetchCartItems())
   }, [dispatch])
 
   return (
@@ -53,7 +50,10 @@ const Cart = () => {
                     <h3 className="cart-list-item-info">
                       Price: <span>{product.price}</span>
                     </h3>
-                    <button className="cart-list-item-remove">
+                    <button
+                      className="cart-list-item-remove"
+                      onClick={() => dispatch(removeCartItem(product.id))}
+                    >
                       <i className="fa fa-times" />
                       Remove from Cart
                     </button>
