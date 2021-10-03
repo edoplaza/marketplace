@@ -5,7 +5,6 @@ import Home from './components/Home'
 import Cart from './components/Cart'
 import Products from './components/Products'
 import Product from './components/Product'
-import { products } from './helpers/products'
 
 import './app.scss'
 
@@ -17,7 +16,7 @@ function App() {
         <div className="app-main-inner container">
           <Switch>
             <Route path="/products/:id">
-              <Product products={products} />
+              <Product />
             </Route>
             <Route path="/products">
               <Products />

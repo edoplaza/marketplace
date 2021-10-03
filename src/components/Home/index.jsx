@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { products } from '../../helpers/products'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProducts, productsSelector } from '../../slices/products'
 
 import './styles.scss'
 
 const Home = () => {
+  const dispatch = useDispatch()
+  const { products } = useSelector(productsSelector)
+
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch])
+
   return (
     <div className="home">
       <h2 className="home-title">Welcome to our shop!</h2>

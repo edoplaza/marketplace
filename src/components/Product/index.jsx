@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProducts, productsSelector } from '../../slices/products'
 
 import './styles.scss'
 
-const Product = ({ products }) => {
+const Product = () => {
+  const dispatch = useDispatch()
+  const { products } = useSelector(productsSelector)
   const { id } = useParams()
+
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch])
 
   return (
     <div className="product">
