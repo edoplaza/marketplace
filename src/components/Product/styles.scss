@@ -1,0 +1,59 @@
+@import '../../main.scss';
+
+.product {
+  &-card {
+    width: 100%;
+    padding: 20px;
+  }
+  &-info {
+    display: flex;
+    gap: 30px;
+  }
+
+  &-thumbnail {
+    width: 70%;
+
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &-description {
+    width: 25%;
+    padding: 30px;
+  }
+
+  &-description-item {
+    font-size: 18px;
+    color: $black;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+    > span {
+      font-weight: 400;
+    }
+  }
+
+  &-add {
+    background: $red;
+    color: $white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 1px solid $red;
+    border-radius: 6px;
+    transition: 0.3s;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: darken($red, 10%);
+    }
+
+    i {
+      font-size: 15px;
+    }
+  }
+}

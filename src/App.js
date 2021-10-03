@@ -14,20 +14,22 @@ function App() {
     <div className="app">
       <Header />
       <main className="app-main">
-        <Switch>
-          <Route path="/products/:id">
-            <Product products={products} />
-          </Route>
-          <Route path="/products">
-            <Products />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <div className="app-main-inner container">
+          <Switch>
+            <Route path="/products/:id">
+              <Product products={products} />
+            </Route>
+            <Route path="/products">
+              <Products />
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
       </main>
       <Footer />
     </div>

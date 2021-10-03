@@ -1,12 +1,14 @@
 export const products = [
   {
-    name: 'Product A',
-    id: 'a',
+    name: 'Astronauts',
+    id: '123456',
     price: '$100',
+    thumbnail: 'a.jpg',
   },
   {
-    name: 'Product B',
-    id: 'b',
+    name: 'Alien',
+    id: '654321',
     price: '$200',
+    thumbnail: 'b.jpg',
   },
 ]

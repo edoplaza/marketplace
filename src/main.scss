@@ -1,14 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 $black: #000000;
 $white: #ffffff;
 $blue: rgb(104, 135, 240);
-$light-gray: #e8edfa;
+$light-blue: #aec7e8;
+$light-gray: #f4f6f7;
 $gray: rgb(140, 148, 169);
-$dark-gray: #131840;
+$dark-gray: #23272c;
 $active: #6887f0;
-$sucess: #1f77b4;
-$failure: #aec7e8;
+$red: #ce3c5c;
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -131,7 +131,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -147,5 +147,15 @@ table {
 
 body,
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
 }

@@ -1,0 +1,21 @@
+@import '../../main.scss';
+
+.header {
+  background: $dark-gray;
+  width: 100vw;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 20px;
+
+  &-logo {
+    > a {
+      font-size: 20px;
+      line-height: 1;
+      color: $white;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+}

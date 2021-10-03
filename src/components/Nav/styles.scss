@@ -1,0 +1,38 @@
+@import '../../main.scss';
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  &-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+  }
+
+  &-item {
+    > a {
+      color: $white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
+
+.cart-number {
+  width: 20px;
+  height: 20px;
+  background: $red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 400;
+}
