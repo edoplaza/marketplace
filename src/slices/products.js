@@ -1,19 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
-const products = [
-  {
-    name: 'Astronauts',
-    id: '123456',
-    price: '$100',
-    thumbnail: 'a.jpg',
-  },
-  {
-    name: 'Alien',
-    id: '654321',
-    price: '$200',
-    thumbnail: 'b.jpg',
-  },
-]
+import { products } from '../helpers/products'
 
 export const initialState = {
   products: products,
@@ -23,23 +9,11 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    getProducts: (state) => {
-      state.productsLoading = true
-    },
-    getProductsSuccess: (state, { payload }) => {
-      state.products = payload.data
-      state.productsLoading = false
-      state.productsHasErrors = false
-    },
-    getProductsFailure: (state) => {
-      state.productsLoading = false
-      state.productsHasErrors = true
-    },
+    getProducts: (state) => state,
   },
 })
 
-export const { getProducts, getProductsSuccess, getProductsFailure } =
-  productsSlice.actions
+export const { getProducts } = productsSlice.actions
 
 export const productsSelector = (state) => state.products
 

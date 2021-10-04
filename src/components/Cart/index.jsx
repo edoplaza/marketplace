@@ -24,13 +24,11 @@ const Cart = () => {
       <PageTitle text="Cart" />
 
       {cart.length === 0 && (
-        <>
-          <p className="cart-message">
-            Your cart is empty. <br />
-            You can visit our <Link to="/products">products page</Link> and buy
-            some cool models.
-          </p>
-        </>
+        <p className="cart-message">
+          Your cart is empty. <br />
+          You can visit our <Link to="/products">products page</Link> and buy
+          some cool models.
+        </p>
       )}
 
       {cart.length > 0 && (
