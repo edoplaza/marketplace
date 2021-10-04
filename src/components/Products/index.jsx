@@ -3,6 +3,8 @@ import { Link, useRouteMatch } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts, productsSelector } from '../../slices/products'
 
+import PageTitle from '../UI/PageTitle'
+
 import './styles.scss'
 
 const Products = () => {
@@ -16,7 +18,7 @@ const Products = () => {
 
   return (
     <div className="products">
-      <h2 className="products-title">Products</h2>
+      <PageTitle text="Products" />
       <ul className="products-list">
         {products.map((product) => {
           return (

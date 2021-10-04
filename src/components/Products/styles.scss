@@ -1,13 +1,5 @@
 @import '../../main.scss';
 
-.products {
-  &-title {
-    font-size: 30px;
-    color: $black;
-    margin: 0 0 30px 0;
-  }
-}
-
 .products-list {
   display: flex;
   gap: 40px;

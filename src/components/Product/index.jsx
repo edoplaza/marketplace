@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts, productsSelector } from '../../slices/products'
 import { addCartItem } from '../../slices/cart'
 
+import Button from '../UI/Button'
+
 import './styles.scss'
 
 const Product = () => {
@@ -35,12 +37,13 @@ const Product = () => {
                 <p className="product-description-item">
                   Price: <span>{product.price}</span>
                 </p>
-                <button
-                  className="product-add"
+
+                <Button
+                  classname="button-big"
                   onClick={() => dispatch(addCartItem(product.id))}
-                >
-                  <i className="fa fa-shopping-cart"></i>Add to Cart
-                </button>
+                  text="Add to Cart"
+                  icon="shopping-cart"
+                />
               </div>
             </div>
           </div>

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts, productsSelector } from '../../slices/products'
 
+import PageTitle from '../UI/PageTitle'
+
 import './styles.scss'
 
 const Home = () => {
@@ -15,7 +17,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h2 className="home-title">Welcome to our shop!</h2>
+      <PageTitle text="Welcome to Our Shop!" />
 
       <p className="home-featured">
         You are probably interested in

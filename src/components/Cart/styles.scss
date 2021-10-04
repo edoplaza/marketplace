@@ -1,11 +1,6 @@
 @import '../../main.scss';
 
 .cart {
-  &-title {
-    font-size: 30px;
-    color: $black;
-    margin: 0 0 30px 0;
-  }
   &-message {
     font-size: 20px;
     line-height: 30px;
@@ -47,29 +42,6 @@
     margin: 0 0 20px 0;
     > span {
       font-weight: 400;
-    }
-  }
-
-  &-remove {
-    background: $red;
-    color: $white;
-    font-size: 16px;
-    padding: 5px 10px;
-    border: 1px solid $red;
-    border-radius: 6px;
-    transition: 0.3s;
-    cursor: pointer;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-      background: darken($red, 10%);
-    }
-
-    i {
-      font-size: 15px;
     }
   }
 }

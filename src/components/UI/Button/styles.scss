@@ -1,0 +1,32 @@
+@import '../../../main.scss';
+
+.button {
+  background: $red;
+  color: $white;
+  border: 1px solid $red;
+  border-radius: 6px;
+  transition: 0.3s;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  &-big {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  &-small {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  &:hover {
+    background: darken($red, 10%);
+  }
+
+  i {
+    font-size: 15px;
+  }
+}

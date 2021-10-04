@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchCartItems, removeCartItem, cartSelector } from '../../slices/cart'
 import { fetchProducts, productsSelector } from '../../slices/products'
 
+import PageTitle from '../UI/PageTitle'
+import Button from '../UI/Button'
+
 import './styles.scss'
 
 const Cart = () => {
@@ -18,7 +21,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <h2 className="cart-title">Cart</h2>
+      <PageTitle text="Cart" />
 
       {cart.length === 0 && (
         <>
@@ -50,13 +53,13 @@ const Cart = () => {
                     <h3 className="cart-list-item-info">
                       Price: <span>{product.price}</span>
                     </h3>
-                    <button
-                      className="cart-list-item-remove"
+
+                    <Button
+                      classname="button-small"
                       onClick={() => dispatch(removeCartItem(product.id))}
-                    >
-                      <i className="fa fa-times" />
-                      Remove from Cart
-                    </button>
+                      text=" Remove from Cart"
+                      icon="times"
+                    />
                   </div>
                 )
               } else {
